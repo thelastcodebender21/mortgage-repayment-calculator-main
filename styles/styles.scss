@@ -1,0 +1,374 @@
+@import './variables';
+
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; 
+}
+
+.container{
+  width: 100%;
+  @include displayType(flex, column, start, center);
+}
+
+body{
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: $primaryfontsize;
+}
+
+button{
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: $primaryfontsize;
+  line-height: 100%;
+}
+
+img{
+  width: 100%;
+}
+
+h1{
+  font-weight: 700;
+  font-size: 24px;
+  color: $slate900;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+
+
+h5{
+  color: $slate900;
+  opacity: 0.9;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+h3{
+  font-weight: 700;
+  font-size: 18px;
+  color: $slate900;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+
+.form-section{
+  padding: 6% 6%;
+  @include displayType(flex, column, start, center);
+  gap: 30px;
+  width: 100vw;
+  height: 100%;
+  .header-text{
+    @include displayType(flex, column, start, center);
+    gap: 15px;
+    #reset{
+      color: $slate900;
+      opacity: 0.9;
+      background: none;
+      border: none;
+      border-bottom: 1px solid hsla(202, 55%, 16%, 0.9);
+      font-size: 16px;
+      font-weight: 500;
+      padding: 1px;
+    }
+  }
+  #mortgageForm{
+    @include displayType(flex, column, start, center);
+    gap: 25px;
+    width: 100%;
+    .form-entry{
+      @include displayType(flex, column, start, center);
+      gap: 10px;
+      width: 100%;
+      .input-field{
+        width: 100%;
+        border: 1px solid hsla(202, 55%, 16%, 0.6);
+        @include displayType(flex, row, center, center);
+        border-radius: 4px;
+        user-select: none;
+        cursor: pointer;
+        input{
+          border: none;
+          width: 100%;
+          font-weight: 600;
+          font-size: 20px;
+          color: $slate900;
+          margin-left: 5%;
+          outline: none;
+        }
+        .input-units{
+          background: $slate100;
+          border-radius: 4px; 
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+          padding: 4% 5%;
+          h3{
+            color: $slate700;
+            font-weight: 700;
+            line-height: 100%;
+            font-size: 18px;
+          }
+        }
+        #input-field-amount-icon{
+          border-bottom-left-radius: 4px;
+          border-top-left-radius: 4px;
+          border-bottom-right-radius: 0px;
+          border-top-right-radius: 0px;
+        }
+      }
+      .input-field:hover{
+        border: 1px solid $slate900;
+      }
+      .error-message{
+        display: block;
+        color: $red;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 100%;
+        font-weight: 500;
+      }
+     
+    }
+    .twin-input{
+      @include displayType(flex, column, start,  center);
+      width: 100%;
+      gap: 25px;
+    }
+    .radioGroup{
+      @include displayType(flex, column, start, center);
+      width: 100%;
+      gap: 15px;
+
+      .radio-field{
+        @include displayType(flex, row, center, start);
+        border: 1px solid $slate900;
+        width: 100%;
+        padding: 4% 5%;
+        gap: 5%;
+        border-radius: 4px;
+        input[type="radio"] {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 18px;
+          height: 18px;
+          border: 2px solid #555;
+          border-radius: 50%;
+          outline: none;
+          cursor: pointer;
+          position: relative;
+        }
+        input[type="radio"]:checked::before {
+          content: "";
+          position: absolute;
+          top: 21%;
+          left: 21%;
+          width: 8px;
+          height: 8px;
+          background: $lime;
+          border-radius: 50%;
+        }
+
+        input[type="radio"]:checked{
+          border: 2px solid $lime;
+        }
+      
+     }
+      .radio-field:hover{
+        border: 1px solid hsl(61, 70%, 52%);
+      }
+
+      .checked{
+        border: 1px solid hsl(61, 70%, 52%);
+        background: hsla(61, 70%, 52%, 0.3);
+        transition: 0.3s ease;
+      }
+
+      .error-message{
+        display: none; 
+        color: $red;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 100%;
+        font-weight: 500;
+      }
+    }
+
+    button{
+      @include displayType(flex, row, center, center);
+      gap: 20px;
+      border: none;
+      span{
+        width: 30px;
+        height: 30px;
+      }
+      width: 100%;
+      padding: 14px 32px;
+      font-size: 18px;
+      color: $slate900;
+      line-height: 100%;
+      font-weight: 700;
+      border-radius: 32px;
+      background: hsl(61, 70%, 52%);
+      letter-spacing: 0;
+    }
+
+    button:hover{
+      background: hsla(61, 70%, 52%, 0.5);
+    }
+    
+  }
+}
+
+.empty-result-section{
+  background: hsla(202, 55%, 16%, 0.9);
+  padding: 6% 6%;
+  @include displayType(flex, column, center, center);
+  gap: 16px;
+  width: 100%;
+  img{
+    width: 50%;
+    height: 100%;
+  }
+  h3{
+    color: white;
+    font-weight: 700;
+  }
+  p{
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    color: $slate100;
+    font-size: 14px;
+    opacity: 0.5;
+    line-height: 100%;
+  }
+}
+
+.filled-results-section{
+  display: none;
+  background: hsla(202, 55%, 16%, 0.9);
+  padding: 6% 6%;
+  gap: 22px;
+  width: 100%;
+  h3{
+    color: white;
+    font-weight: 700;
+    line-height: 100%;
+  }
+  p{
+    width: 100%;
+    font-weight: 300;
+    color: $slate100;
+    font-size: 14px;
+    opacity: 0.5;
+    line-height: 100%;
+  }
+
+ 
+
+  .yellow-and-blue{
+    width: 100%;
+    @include displayType(flex, column, start, center);
+    .top-line{
+      background-color: $lime;
+      width: 100%;
+      height: 12px;
+      border-radius: 120px 120px 0 0;
+    }
+
+    .filled-results-section-card{
+      @include displayType(flex, column, start, center);
+      gap: 21px;
+      width: 100%;
+      background-color: $slate900;
+      border-radius: 8px 8px 0 0;
+      margin-top: -5px;
+      padding: 4.5% 4.5%;
+
+      h1{
+        color: $lime;
+        font-size: 40px;
+      }
+
+      hr{
+        width: 100%;
+        border-width: 0.5px;
+        border-color: hsl(202, 86%, 94%, 0.2);
+      }
+
+    }
+  }
+  
+}
+
+@media screen and (min-width: 800px){
+  body{
+    @include displayType(flex, row, center, center);
+    background-color: $slate100;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-size: 0.8rem !important;
+    gap: 0.8rem !important;
+  }
+  .container{
+    @include displayType(flex, row, center, row);
+    background-color: white;
+    width: 65%;
+    height: 73%;
+    border-radius: 16px 16px 16px 16px;
+
+    .form-section{
+      width: 100%;
+      padding: 3% 3%;
+      height: 100%;
+      object-fit: contain;
+      .header-text{
+        gap: 10px;
+        #reset{
+          
+        }
+      }
+      #mortgageForm{
+        .twin-input{
+          flex-direction: row;
+          height: 89px;
+          .form-entry{
+            height: 100%;
+            .input-field{
+              input{
+                height: 49px;
+              }
+              .input-units{
+                height: 49px;
+                @include displayType(flex, column, center, center);
+                padding: 4% 5%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .empty-result-section{
+      width: 100%;
+      height: 100%;
+      border-radius: 0 16px 16px 60px;
+      object-fit: cover;
+      img{
+        height: 60%;
+      }
+    }
+
+    #filled-results-section{
+      height: 100%;
+      width: 100%;
+      padding: 2% 5%;
+      align-items: center;
+      border-radius: 0 16px 16px 60px;
+
+    }
+  }
+}
